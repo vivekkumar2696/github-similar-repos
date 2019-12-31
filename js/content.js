@@ -73,7 +73,7 @@ const getAPIData = (keyword) => {
 	}
 
 	const API = 'https://api.github.com/search/repositories';
-	const page = '?q=' + keyword + '+in:name' + '&sort=stars&order=desc';
+	const page = '?q=' + keyword + '+in:name,description' + '&sort=stars&order=desc';
 
 	const request = new Request(`${API}${page}`, {
 		headers: new Headers(headerObj)
