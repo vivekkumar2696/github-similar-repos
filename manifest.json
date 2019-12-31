@@ -1,0 +1,25 @@
+{
+	"name": "GitHub",
+	"version": "0.1.0",
+	"manifest_version": 2,
+	"description": "",
+	"permissions": [
+		"storage",
+		"activeTab"
+	 ],
+	"content_scripts": [
+	  {
+		"matches": [
+		  "*://github.com/*"
+		],
+		"js": ["./js/content.js"]
+	  }
+	],
+	"web_accessible_resources": [
+		"popup.html"
+	],
+	"browser_action": {},
+	"background": {
+	    "scripts":["./js/background.js"]
+	}
+}
