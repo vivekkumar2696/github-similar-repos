@@ -59,13 +59,7 @@ const getAPIData = (keyword) => {
 	}
 
 	const API = 'https://api.github.com/search/repositories';
-	// const uri = repoObject['repo'] + '/tags';
 	const page = '?q=' + keyword + '&sort=stars&order=desc';
-	// const token = localStorage.getItem(GITHUB_TOKEN_KEY) || GITHUB_TOKEN_KEY;
-
-	// if (token) {
-	// 	headerObj['Authorization'] = 'token ' + token;
-	// }
 
 	const request = new Request(`${API}${page}`, {
 		headers: new Headers(headerObj)
@@ -81,17 +75,11 @@ const getAPIData = (keyword) => {
 const getTotalTags = async() => {
 	const repoObject = getRepoObject();
 	const response = await getAPIData(repoObject['repo'].split("/")[1].replace(/[^A-Z0-9]/ig, " "));
-	for (let item in response) {
-	}
 
-	console.log(response);
-
-	chrome.storage.local.set({'data': JSON.stringify(response['items'])}, function() {
-		console.log('Value is set to ' + JSON.stringify(response['items']));
-    });
+	chrome.storage.local.set({'data': JSON.stringify(response['items'])});
+    chrome.storage.local.set({'current_repo': repoObject['repo']});
 
 	repoContentIframe.src = chrome.extension.getURL("popup.html")
-
 	document.body.appendChild(repoContentIframe);
 }
 
