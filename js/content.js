@@ -25,7 +25,7 @@ repoContentIframe.frameBorder = "none";
 */
 function toggle(){
     if(repoContentIframe.style.width == "0px"){
-        repoContentIframe.style.width="400px";
+        repoContentIframe.style.width="500px";
     }
     else{
         repoContentIframe.style.width="0px";
