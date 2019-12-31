@@ -5,12 +5,12 @@ function getRepoData() {
 		var repoData = JSON.parse(result.data);
 		var str = '<ul>'
 
-		repoData.forEach(function(slide) {
-		  str += '<li>'+ slide['full_name'] + '</li>';
+		repoData.forEach(function(repo) {
+		  str += '<li>'+ repo['full_name'] + '</li>';
 		}); 
 
 		str += '</ul>';
-		document.getElementById("slideContainer").innerHTML = str;
+		document.getElementById("repoListContainer").innerHTML = str;
     });
 }
 

@@ -5,22 +5,23 @@ chrome.runtime.onMessage.addListener(function(msg, sender){
 })
 
 
-var iframe = document.createElement('iframe'); 
-iframe.style.background = "white";
-iframe.style.height = "100%";
-iframe.style.width = "0px";
-iframe.style.position = "fixed";
-iframe.style.top = "0px";
-iframe.style.right = "0px";
-iframe.style.zIndex = "9000000000000000000";
-iframe.frameBorder = "none"; 
+// Initialize an iframe for sidebar
+var repoContentIframe = document.createElement('iframe'); 
+repoContentIframe.style.background = "white";
+repoContentIframe.style.height = "100%";
+repoContentIframe.style.width = "0px";
+repoContentIframe.style.position = "fixed";
+repoContentIframe.style.top = "0px";
+repoContentIframe.style.right = "0px";
+repoContentIframe.style.zIndex = "9000000000000000000";
+repoContentIframe.frameBorder = "none"; 
 
 function toggle(){
-    if(iframe.style.width == "0px"){
-        iframe.style.width="400px";
+    if(repoContentIframe.style.width == "0px"){
+        repoContentIframe.style.width="400px";
     }
     else{
-        iframe.style.width="0px";
+        repoContentIframe.style.width="0px";
     }
 }
 
@@ -53,7 +54,6 @@ const getRepoObject = () => {
 }
 
 const getAPIData = (keyword) => {
-	// const repoObject = getRepoObject();
 	const headerObj = {
 		'User-Agent': 'vivek/repository-suggestions'
 	}
@@ -79,7 +79,8 @@ const getAPIData = (keyword) => {
 
 
 const getTotalTags = async() => {
-	const response = await getAPIData("alphablend");
+	const repoObject = getRepoObject();
+	const response = await getAPIData(repoObject['repo'].split("/")[1].replace(/[^A-Z0-9]/ig, " "));
 	for (let item in response) {
 	}
 
@@ -89,10 +90,9 @@ const getTotalTags = async() => {
 		console.log('Value is set to ' + JSON.stringify(response['items']));
     });
 
-	iframe.src = chrome.extension.getURL("popup.html")
+	repoContentIframe.src = chrome.extension.getURL("popup.html")
 
-	document.body.appendChild(iframe);
-	toggle();
+	document.body.appendChild(repoContentIframe);
 }
 
 
