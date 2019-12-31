@@ -1,3 +1,6 @@
+/*
+** On Click listener to toggle the side bar
+**/
 chrome.runtime.onMessage.addListener(function(msg, sender){
     if(msg == "toggle"){
         toggle();
@@ -16,6 +19,10 @@ repoContentIframe.style.right = "0px";
 repoContentIframe.style.zIndex = "9000000000000000000";
 repoContentIframe.frameBorder = "none"; 
 
+/*
+** Helper function to toggle the side bar
+** Credits: https://stackoverflow.com/questions/39610205/how-to-make-side-panel-in-chrome-extension?rq=1
+*/
 function toggle(){
     if(repoContentIframe.style.width == "0px"){
         repoContentIframe.style.width="400px";
@@ -25,6 +32,9 @@ function toggle(){
     }
 }
 
+/*
+** Credit: https://github.com/harshjv/github-repo-size/blob/master/src/inject.js
+*/
 const getRepoObject = () => {
   // find file button
   const elem = document.querySelector('a.d-none.js-permalink-shortcut');
@@ -53,6 +63,10 @@ const getRepoObject = () => {
   }
 }
 
+/*
+** Function which searches for repositories using keywords.
+** It returns a JSON object
+*/
 const getAPIData = (keyword) => {
 	const headerObj = {
 		'User-Agent': 'vivek/repository-suggestions'
@@ -72,6 +86,9 @@ const getAPIData = (keyword) => {
 }
 
 
+/*
+** Gets the API data and stores into localstorage and creates an Iframe out of it
+*/
 const getTotalTags = async() => {
 	const repoObject = getRepoObject();
 	const response = await getAPIData(repoObject['repo'].split("/")[1].replace(/[^A-Z0-9]/ig, " "));
@@ -82,6 +99,5 @@ const getTotalTags = async() => {
 	repoContentIframe.src = chrome.extension.getURL("popup.html")
 	document.body.appendChild(repoContentIframe);
 }
-
 
 getTotalTags();

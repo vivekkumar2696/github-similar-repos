@@ -4,6 +4,7 @@ function getRepoData() {
 		var repoData = JSON.parse(result.data);
 		var str = '<table>';
 		var currentRepo = null;
+		
 		chrome.storage.local.get('current_repo', function(value) {
 			currentRepo = value.current_repo;
 
