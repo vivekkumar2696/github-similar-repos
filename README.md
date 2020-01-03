@@ -1,11 +1,11 @@
 # Chrome extension to show similar public repositories
 
 
-It searches for the similar repositories which is currently open.
+It searches for the similar repositories to the one which is currently open.
 
 ## Steps
   1. Go to a repository, e.g. https://github.com/tensorflow/tensorflow
-  2. Click the extension icon on the top, beside address bar.
+  2. Click the extension icon of `Github Similar Repos` on the top, beside address bar.
 
 ## Screenshot
 
