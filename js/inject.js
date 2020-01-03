@@ -15,14 +15,14 @@ function getRepoData() {
 					return;
 
 				str += '<tr>';
-				str += '<td style="border-bottom: 1px solid #e1e4e8;margin-left: 10px;padding-left: 10px;padding-bottom: 5px;padding-right: 10px;padding-top: 5px">';
-				str += '<a href='+ repo['html_url'] + ' target="_blank">' +'<div style="color: #0366d6!important;font-weight: 500;font-size: 16px;pointer: cursor;">' +  repo['full_name'] + '</div></a>';
+				str += '<td class="repo-list-row">';
+				str += '<a href='+ repo['html_url'] + ' target="_blank">' +'<div class="repo-full-name">' +  repo['full_name'] + '</div></a>';
 				if(repo['description'])
-					str += '<div style="margin-bottom: 4px;font-size: 14px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;width: 450px;height: 25px;">' + repo['description'] + '</div>';
-				str += '<div style="font-size: 12px;">';
-				str += '<span><svg aria-label="star" style="overflow: visible!important;" viewBox="0 0 12 12" version="1.1" width="12" height="12" role="img"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"></path></svg>  ' + (repo['watchers_count'] ? repo['watchers_count'] : '0') + '</span>';
+					str += '<div class="repo-description">' + repo['description'] + '</div>';
+				str += '<div class="repo-details-div">';
+				str += '<span><svg aria-label="star" class="star-icon" viewBox="0 0 12 12" version="1.1" width="12" height="12" role="img"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"></path></svg>  ' + (repo['watchers_count'] ? repo['watchers_count'] : '0') + '</span>';
 				if(repo['language'])
-					str += '<span style="background-color: #b07219;margin-left: 10px;width: 5px;height:5px;"></span>' + '<span style="font-weight: 600;">' + repo['language'] + '</span>';
+					str += '<span class="repo-language"></span>' + '<span class="repo-language-cons">' + repo['language'] + '</span>';
 				str += '</div>';
 				str +='</td>';
 				str += '</tr>';

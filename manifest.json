@@ -12,11 +12,13 @@
 		"matches": [
 		  "*://github.com/*"
 		],
-		"js": ["./js/content.js"]
+		"js": ["./js/content.js"],
+		"css": ["popup.css"]
 	  }
 	],
 	"web_accessible_resources": [
-		"popup.html"
+		"popup.html",
+		"popup.css"
 	],
 	"browser_action": {},
 	"background": {
