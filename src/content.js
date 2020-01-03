@@ -96,7 +96,7 @@ const getTotalTags = async() => {
 	chrome.storage.local.set({'data': JSON.stringify(response['items'])});
     chrome.storage.local.set({'current_repo': repoObject['repo']});
 
-	repoContentIframe.src = chrome.extension.getURL("popup.html")
+	repoContentIframe.src = chrome.extension.getURL("src/popup.html")
 	document.body.appendChild(repoContentIframe);
 }
 

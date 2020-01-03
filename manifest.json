@@ -12,16 +12,16 @@
 		"matches": [
 		  "*://github.com/*"
 		],
-		"js": ["./js/content.js"],
-		"css": ["popup.css"]
+		"js": ["./src/content.js"],
+		"css": ["./src/popup.css"]
 	  }
 	],
 	"web_accessible_resources": [
-		"popup.html",
+		"src/popup.html",
 		"popup.css"
 	],
 	"browser_action": {},
 	"background": {
-	    "scripts":["./js/background.js"]
+	    "scripts":["./src/background.js"]
 	}
 }
