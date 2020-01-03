@@ -16,7 +16,7 @@ function getRepoData() {
 
 				str += '<tr>';
 				str += '<td style="border-bottom: 1px solid #e1e4e8;margin-left: 10px;padding-left: 10px;padding-bottom: 5px;padding-right: 10px;padding-top: 5px">';
-				str += '<a href='+ repo['html_url'] + '>' +'<div style="color: #0366d6!important;font-weight: 500;font-size: 16px;pointer: cursor;">' +  repo['full_name'] + '</div></a>';
+				str += '<a href='+ repo['html_url'] + ' target="_blank">' +'<div style="color: #0366d6!important;font-weight: 500;font-size: 16px;pointer: cursor;">' +  repo['full_name'] + '</div></a>';
 				if(repo['description'])
 					str += '<div style="margin-bottom: 4px;font-size: 14px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;width: 450px;height: 25px;">' + repo['description'] + '</div>';
 				str += '<div style="font-size: 12px;">';
@@ -26,7 +26,7 @@ function getRepoData() {
 				str += '</div>';
 				str +='</td>';
 				str += '</tr>';
-			}); 
+			});
 
 			str += '</table>';
 			document.getElementById("repoListContainer").innerHTML = str;
