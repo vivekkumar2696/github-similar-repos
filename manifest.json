@@ -1,27 +1,41 @@
 {
-	"name": "GitHub similar repository suggestions",
-	"version": "0.1.0",
-	"manifest_version": 2,
-	"description": "",
-	"permissions": [
-		"storage",
-		"activeTab"
-	 ],
-	"content_scripts": [
-	  {
-		"matches": [
-		  "*://github.com/*"
-		],
-		"js": ["./src/content.js"],
-		"css": ["./src/popup.css"]
-	  }
-	],
-	"web_accessible_resources": [
-		"src/popup.html",
-		"popup.css"
-	],
-	"browser_action": {},
-	"background": {
-	    "scripts":["./src/background.js"]
-	}
+  "name": "GitHub similar repository suggestions",
+  "version": "0.5.0",
+  "manifest_version": 2,
+  "description": "It shows the similar repositories to the one which is currently open.",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "homepage_url": "https://github.com/vivekkumar2696/github-similar-repos",
+  "author": "Vivek Kumar",
+  "icons": {
+    "32": "./icons/GitHub-Mark-32px.png",
+    "64": "./icons/GitHub-Mark-64px.png",
+    "128": "./icons/GitHub-Mark-120px-plus.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://github.com/*"
+      ],
+      "js": ["./src/content.js"],
+      "css": ["./src/popup.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    "src/popup.html",
+    "popup.css"
+  ],
+  "browser_action": {
+    "default_icon": {
+      "32": "./icons/GitHub-Mark-32px.png",
+      "64": "./icons/GitHub-Mark-64px.png",
+      "128": "./icons/GitHub-Mark-120px-plus.png"
+    },
+    "default_title": "GitHub Similar Repositories: Click to show/hide similar repositories"
+  },
+  "background": {
+      "scripts":["./src/background.js"]
+  }
 }
