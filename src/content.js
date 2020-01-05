@@ -9,7 +9,7 @@ chrome.runtime.onMessage.addListener(function(msg, sender){
 
 
 // Initialize an iframe for sidebar
-var repoContentIframe = document.createElement('iframe'); 
+var repoContentIframe = document.createElement('iframe');
 repoContentIframe.style.background = "white";
 repoContentIframe.style.height = "100%";
 repoContentIframe.style.width = "0px";
@@ -17,7 +17,7 @@ repoContentIframe.style.position = "fixed";
 repoContentIframe.style.top = "0px";
 repoContentIframe.style.right = "0px";
 repoContentIframe.style.zIndex = "9000000000000000000";
-repoContentIframe.frameBorder = "none"; 
+repoContentIframe.frameBorder = "none";
 
 /*
 ** Helper function to toggle the side bar
@@ -37,15 +37,15 @@ function toggle(){
 */
 const getRepoObject = () => {
   // find file button
-  const elem = document.querySelector('a.d-none.js-permalink-shortcut');
+  const elem = window.location.href;
   if (!elem) return false;
 
-  if (!elem.href ||
-      !elem.href.match(/^https?:\/\/github.com\//)) {
+  if (!elem ||
+      !elem.match(/^https?:\/\/github.com\//)) {
     return false;
   }
 
-  const repoUri = elem.href.replace(/^https?:\/\/github.com\//, '');
+  const repoUri = elem.replace(/^https?:\/\/github.com\//, '');
   const arr = repoUri.split('/');
 
   const userOrg = arr.shift();
