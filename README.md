@@ -8,7 +8,7 @@ It searches for the similar repositories to the one which is currently open.
 
 ## Steps
   1. Go to a repository, e.g. https://github.com/tensorflow/tensorflow
-  2. Wait for the page to laod.
+  2. Wait for the page to load.
   3. Click the extension icon of `Github Similar Repos` on the top, beside address bar.
 
 ## Screenshot
