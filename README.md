@@ -1,5 +1,8 @@
 # Chrome extension to show similar public repositories
 
+[![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/) [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/ppgdlobphnefimdieecenohghobnfndh.svg)](https://chrome.google.com/webstore/detail/github-similar-repository/ppgdlobphnefimdieecenohghobnfndh)
+
+[![Install from chrome web store](https://developer.chrome.com/webstore/images/ChromeWebStore_Badge_v2_340x96.png)](https://chrome.google.com/webstore/detail/github-similar-repository/ppgdlobphnefimdieecenohghobnfndh)
 
 It searches for the similar repositories to the one which is currently open.
 
