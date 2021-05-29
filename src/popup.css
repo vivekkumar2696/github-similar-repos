@@ -1,5 +1,6 @@
 .whole-body {
     border: 1px solid #e1e4e8;
+    overflow: auto;
 }
 
 .title-div {

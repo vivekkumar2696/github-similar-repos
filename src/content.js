@@ -86,12 +86,16 @@ const getAPIData = (keyword) => {
 }
 
 
+
+camelToSnakeCase = str => str.replace(/[A-Z]/g, letter => `_${letter.toLowerCase()}`);
+
 /*
 ** Gets the API data and stores into localstorage and creates an Iframe out of it
 */
 const getTotalTags = async() => {
 	const repoObject = getRepoObject();
-	const response = await getAPIData(repoObject['repo'].split("/")[1].replace(/[^A-Z0-9]/ig, " "));
+    let repoName = camelToSnakeCase(repoObject['repo'].split("/")[1])
+	const response = await getAPIData(repoName.replace(/[^A-Z0-9]/ig, " "));
 
 	chrome.storage.local.set({'data': JSON.stringify(response['items'])});
     chrome.storage.local.set({'current_repo': repoObject['repo']});
